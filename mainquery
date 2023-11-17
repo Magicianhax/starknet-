@@ -1,0 +1,7 @@
+select 'Starknet' as type,
+    count(*) as tx_cnt,
+    count(distinct l1_user_address) as user_cnt,
+    sum(amount_usd) filter (where action = 'Deposit') as deposit_amount_usd,
+    sum(amount_usd) as balance_amount_usd
+from query_2664816
+group by 1
